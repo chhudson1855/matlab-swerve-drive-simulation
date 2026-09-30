@@ -1,0 +1,72 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Status,Text Area 1,Comments,Notes,Shape ID
+1,Document,,,,,Draft,matlab mapper,,,401b47c4-4e5d-461a-b585-7bb45e2843a5
+2,Page,,,,,,Page 1,,,0_0
+3,Process,Flowchart Shapes/Containers,2,,61,,Controller,,,a5-yrSKy37mC
+4,Process,Flowchart Shapes/Containers,2,,62,,PID,,,Xn_ypBxDAG~M
+5,Sticky note,Sticky Notes,2,,62,,accept pid struct,,,bo_y~ToySdV~
+6,Sticky note,Sticky Notes,2,,62,,"running on interal 10ms clock, calculate need delta",,,uo_ymc8JRfqb
+7,Sticky note,Sticky Notes,2,,62,,apply calculated delta,,,​-o_y0nv1SsSL
+8,Process,Flowchart Shapes/Containers,2,,63,,Input controller,,,P3-y6VmUbjcz
+9,Sticky note,Sticky Notes,2,,63,,grab inputs from wasd and ijkl in joystick classes,,,Ti_y0JrK.gM_
+10,Sticky note,Sticky Notes,2,,63,,"joystick 1 controls base velocity, joystick 2 controls heading",,,vj_yIFpaSvhy
+11,Sticky note,Sticky Notes,2,,63,,turn each into a vector,,,vk_yxM-erxb6
+12,Sticky note,Sticky Notes,2,,63,,make sure joystick movment is tweened,,,en_yVmshZSbV
+13,Sticky note,Sticky Notes,2,,63,,send the data to robot simulator,,,Nr_yWaLmfA4U
+14,Process,Flowchart Shapes/Containers,2,,64,,Constants,,,1t_y1jWbW-dt
+15,Sticky note,Sticky Notes,2,,64,,all pid structs,,,qu_yJgbFoQH_
+16,Sticky note,Sticky Notes,2,,64,,starting positions,,,xu_y1aEDZ7V7
+17,Sticky note,Sticky Notes,2,,64,,robot dimensions,,,Mu_y7nMvw3ls
+18,Sticky note,Sticky Notes,2,,64,,field dimensions,,,Wu_y13rHqBDx
+19,Sticky note,Sticky Notes,2,,64,,controller settings,,,3u_yf4y1eBh1
+20,Sticky note,Sticky Notes,2,,64,,feature flags,,,Gv_y~rLYFCjP
+21,Sticky note,Sticky Notes,2,,64,,cosine scaling field centric head hold,,,Mv_y8KIV4vil
+22,Sticky note,Sticky Notes,2,,64,,stay at rotation,,,pw_y4D-6d5Vt
+23,Sticky note,Sticky Notes,2,,64,,simulated friction value,,,qx_ymfmhQSTC
+24,Process,Flowchart Shapes/Containers,2,,65,,World state,,,u2-y8aFUnS1D
+25,Sticky note,Sticky Notes,2,,65,,global X global Y global theta,,,lp_yGG2sJoL2
+26,Sticky note,Sticky Notes,2,,65,,pod x pod y pod theta,,,Lp_y2QVbkxbU
+27,Sticky note,Sticky Notes,2,,65,,uses available data from imu and motor,,,​-p_y7aPy-ntu
+28,Sticky note,Sticky Notes,2,,65,,use data to calculate accurate real position,,,uq_yv1mhs2-m
+29,Sticky note,Sticky Notes,2,,65,,imulate slight friction in the wheels,,,Pq_yVHvkwqP.
+30,Sticky note,Sticky Notes,2,,65,,feeds data to the graphics system,,,4q_y4bLq2mNT
+31,Process,Flowchart Shapes/Containers,2,,66,,motor,,,XM_yPX6QKKRv
+32,Sticky note,Sticky Notes,2,,66,,move motor position based on internal thread,,,​-M_yxLlh-C4C
+33,Sticky note,Sticky Notes,2,,66,,accept voltages,,,dN_yoI-0tu_O
+34,Process,Flowchart Shapes/Containers,2,,67,,IMU,,,​-S_y7vT4IYvm
+35,Sticky note,Sticky Notes,2,,67,,returns REAL heading,,,dT_yTjcoPa7r
+36,Process,Flowchart Shapes/Containers,2,,68,,Odometry,,,X4-yTNBYyF52
+37,Sticky note,Sticky Notes,2,,68,,global X global Y global theta,,,LT_yBi1nLWh5
+38,Sticky note,Sticky Notes,2,,68,,pod x pod y pod theta,,,LT_yS5qmufPb
+39,Sticky note,Sticky Notes,2,,68,,summates pod deltas to create world theta,,,LT_yPaEsA70D
+40,Sticky note,Sticky Notes,2,,68,,summates movements to find global movement,,,LT_yjQvio1ug
+41,Sticky note,Sticky Notes,2,,68,,imulate slight friction in the wheels,,,LT_yo-Wi~7OZ
+42,Sticky note,Sticky Notes,2,,68,,feeds data to the graphics system,,,LT_ylKUN-wRU
+43,Process,Flowchart Shapes/Containers,2,,69,,robot controller,,,M4-yAvGtt~j3
+44,Process,Flowchart Shapes/Containers,2,,70,,holonomic controller,,,DL_yi0mdzWpO
+45,Sticky note,Sticky Notes,2,,70,,receives data from input controller,,,6r_y1NMvvw6m
+46,Sticky note,Sticky Notes,2,,70,,use pid pid y and pid theta from constants ,,,hs_y5LPFyKe8
+47,Sticky note,Sticky Notes,2,,70,,uses pid to move to return movement commands,,,IJ_ydT0M0ABY
+48,Sticky note,Sticky Notes,2,,69,,"accepts target forward, strafe, rotation",,,AV_ynimCfK8V
+49,Sticky note,Sticky Notes,2,,69,,factors in flags from constants,,,SV_yqUKobRyH
+50,Sticky note,Sticky Notes,2,,69,,manage speed and angle of each pod,,,6V_yOY7-sdih
+51,Sticky note,Sticky Notes,2,,69,,calculate intended wheel states,,,zW_yFlHLrTQc
+52,Process,Flowchart Shapes/Containers,2,,71,,Graphics System,,,03-y7A~_UN05
+53,Sticky note,Sticky Notes,2,,71,,accept data from odometry,,,lX_yK4FLK~gT
+54,Sticky note,Sticky Notes,2,,71,,accept data from world state,,,xX_yn.fTtFXX
+55,Sticky note,Sticky Notes,2,,71,,use matlab graphics to overlay real and expected,,,FX_yJCCEzrj~
+56,Sticky note,Sticky Notes,2,,71,,display controller inputs,,,SX_y9~Dsj8NI
+57,Sticky note,Sticky Notes,2,,71,,display offset from real pos,,,2X_yLmy2J-0_
+58,Sticky note,Sticky Notes,2,,71,,display pid  data for tuning,,,tY_yV1TCUV0d
+59,Sticky note,Sticky Notes,2,,71,,"show x,y graphic field ",,,DY_yP1rD0WXs
+60,Sticky note,Sticky Notes,2,,71,,show robot box in position for expected and real,,,VY_yGy_o58rW
+61,Group 1,,2,,,,,,,u8_yShp1HvtL
+62,Group 2,,2,,61,,,,,Q7_yzPLW.Waj
+63,Group 3,,2,,,,,,,B7_y8I-uB~sN
+64,Group 4,,2,,,,,,,y7_y6UBbRetn
+65,Group 5,,2,,,,,,,j8_yVhaVyQFq
+66,Group 6,,2,,65,,,,,f8_yXKgwd1h~
+67,Group 7,,2,,65,,,,,c8_yo3LFR~5z
+68,Group 8,,2,,,,,,,p7_yAEI~Rp5p
+69,Group 9,,2,,,,,,,87_yJyuOqE4g
+70,Group 10,,2,,69,,,,,W7_y5~c9Ua8n
+71,Group 11,,2,,,,,,,j7_ypF5cfNMI
