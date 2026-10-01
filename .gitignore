@@ -38,3 +38,9 @@ codegen/
 # SimBiology backup files
 *.sbproj.backup
 *.sbproj.bak
+
+# swerve-sim generated output
+data/*
+build/*
+!data/.gitkeep
+!build/.gitkeep
