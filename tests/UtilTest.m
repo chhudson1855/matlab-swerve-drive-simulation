@@ -73,5 +73,51 @@ classdef UtilTest < matlab.unittest.TestCase
         function clampBadRangeErrors(tc)
             tc.verifyError(@() swerve.util.clamp(0, 1, -1), 'swerve:util:clamp:badRange');
         end
+
+        % ---------- deadband ----------
+        function deadbandZeroInside(tc)
+            tc.verifyEqual(swerve.util.deadband([-0.05 0 0.05], 0.1), [0 0 0]);
+        end
+        function deadbandEdgeIsZero(tc)
+            tc.verifyEqual(swerve.util.deadband(0.1, 0.1), 0);
+        end
+        function deadbandFullScaleStaysFullScale(tc)
+            tc.verifyEqual(swerve.util.deadband([-1 1], 0.1), [-1 1], 'AbsTol', 1e-12);
+        end
+        function deadbandRescalesLinearly(tc)
+            % midpoint of (0.1, 1) is 0.55 -> should map to 0.5
+            tc.verifyEqual(swerve.util.deadband(0.55, 0.1), 0.5, 'AbsTol', 1e-12);
+        end
+        function deadbandPreservesSign(tc)
+            tc.verifyEqual(swerve.util.deadband(-0.55, 0.1), -0.5, 'AbsTol', 1e-12);
+        end
+        function deadbandCustomMaxMag(tc)
+            tc.verifyEqual(swerve.util.deadband(10, 1, 10), 10, 'AbsTol', 1e-12);
+        end
+        function deadbandBadBandErrors(tc)
+            tc.verifyError(@() swerve.util.deadband(0.5, 1), 'swerve:util:deadband:badBand');
+        end
+
+        % ---------- rotate2D ----------
+        function rotate2DQuarterTurn(tc)
+            tc.verifyEqual(swerve.util.rotate2D([1;0], pi/2), [0;1], 'AbsTol', 1e-12);
+        end
+        function rotate2DZeroIsIdentity(tc)
+            v = [3;-4];
+            tc.verifyEqual(swerve.util.rotate2D(v, 0), v, 'AbsTol', 1e-12);
+        end
+        function rotate2DPreservesLength(tc)
+            v = [3;-4];
+            out = swerve.util.rotate2D(v, 1.234);
+            tc.verifyEqual(norm(out), norm(v), 'AbsTol', 1e-12);
+        end
+        function rotate2DInverseRoundTrip(tc)
+            v = [1 -2 0.5; 2 3 -1];
+            out = swerve.util.rotate2D(swerve.util.rotate2D(v, 0.7), -0.7);
+            tc.verifyEqual(out, v, 'AbsTol', 1e-12);
+        end
+        function rotate2DHalfTurnNegates(tc)
+            tc.verifyEqual(swerve.util.rotate2D([2;5], pi), [-2;-5], 'AbsTol', 1e-12);
+        end
     end
 end
